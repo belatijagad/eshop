@@ -20,7 +20,7 @@ public class ProductController {
     public String createProductPage(Model model) {
         Product product = new Product();
         model.addAttribute("product", product);
-        return "productForm";
+        return "productCreate";
     }
 
     @PostMapping("/create")
@@ -32,7 +32,7 @@ public class ProductController {
     @GetMapping("/edit/{id}")
     public String editProductGet(@PathVariable String id, Model model) {
         model.addAttribute("product", service.getById(id));
-        return "productForm";
+        return "productUpdate";
     }
 
     @PostMapping("/edit/{id}")
