@@ -30,8 +30,8 @@ public class ProductController {
     }
 
     @GetMapping("/edit/{id}")
-    public String editProductGet(@PathVariable String productId, Model model) {
-        model.addAttribute("product", service.getById(productId));
+    public String editProductGet(@PathVariable String id, Model model) {
+        model.addAttribute("product", service.getById(id));
         return "productForm";
     }
 
