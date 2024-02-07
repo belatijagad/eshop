@@ -26,4 +26,14 @@ public class ProductRepository {
                 return p;
         return null;
     }
+
+    public boolean deleteById(String id) {
+        for (Product p : productData) {
+            if (p.getProductId().equals(id)) {
+                productData.remove(p);
+                return true;
+            }
+        }
+        return false;
+    }
 }
