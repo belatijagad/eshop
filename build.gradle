@@ -44,32 +44,29 @@ dependencies {
 	testImplementation "io.github.bonigarcia:selenium-jupiter:${seleniumJupiterVersion}"
 	testImplementation "io.github.bonigarcia:webdrivermanager:${webdrivermanagerVersion}"
 	testImplementation "org.junit.jupiter:junit-jupiter-api:${junitJupiterVersion}"
+	testImplementation "org.junit.jupiter:junit-jupiter-engine:${junitJupiterVersion}"
 	testRuntimeOnly "org.junit.jupiter:junit-jupiter-api:${junitJupiterVersion}"
-}
-
-task unitTest(type: Test) {
-    description = 'Run unit tests.'
-    group = 'verification'
-
-    exclude '*FunctionalTest'
-}
-
-task functionalTest(type: Test) {
-    description = 'Run functional tests.'
-    group = 'verification'
-
-    include '*FunctionalTest'
 }
 
 tasks.withType(Test) {
     useJUnitPlatform()
+	finalizedBy jacocoTestReport
 }
 
-test {
-    filter {
-        excludeTestsMatching "*FunctionalTest"
-    }
-    finalizedBy jacocoTestReport
+task unitTest(type: Test) {
+	useJUnitPlatform()
+    description = 'Run unit tests.'
+    group = 'verification'
+
+    exclude '**/*FunctionalTest.class'
+}
+
+task functionalTest(type: Test) {
+	useJUnitPlatform()
+    description = 'Run functional tests.'
+    group = 'verification'
+
+    include '**/*FunctionalTest.class'
 }
 
 jacocoTestReport {
