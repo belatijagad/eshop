@@ -43,4 +43,10 @@ public class ProductServiceImpl implements ProductService {
         }
         return existingProduct;
     }
+
+    @Override
+    public boolean delete(String id, Product product) {
+        
+        return false;
+    }
 }
