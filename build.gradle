@@ -63,3 +63,7 @@ task functionalTest(type: Test) {
 tasks.withType(Test) {
     useJUnitPlatform()
 }
+
+test {
+    useJUnitPlatform()
+}
