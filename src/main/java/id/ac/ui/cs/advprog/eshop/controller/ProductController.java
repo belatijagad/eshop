@@ -20,7 +20,13 @@ public class ProductController {
     public String createProductPage(Model model) {
         Product product = new Product();
         model.addAttribute("product", product);
-        return "createProduct";
+        return "productForm";
+    }
+
+    @PutMapping("/edit/{id}")
+    public String editProductPut(@PathVariable String productId, Model model) {
+        model.addAttribute("product", service.getById(productId));
+        return "productForm";
     }
 
     @PostMapping("/create")
