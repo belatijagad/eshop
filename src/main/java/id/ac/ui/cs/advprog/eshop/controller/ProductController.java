@@ -23,15 +23,21 @@ public class ProductController {
         return "productForm";
     }
 
-    @PutMapping("/edit/{id}")
-    public String editProductPut(@PathVariable String productId, Model model) {
+    @PostMapping("/create")
+    public String createProductPost(@ModelAttribute Product product, Model model) {
+        service.create(product);
+        return "redirect:list";
+    }
+
+    @GetMapping("/edit/{id}")
+    public String editProductGet(@PathVariable String productId, Model model) {
         model.addAttribute("product", service.getById(productId));
         return "productForm";
     }
 
-    @PostMapping("/create")
-    public String createProductPost(@ModelAttribute Product product, Model model) {
-        service.create(product);
+    @PostMapping("/edit/{id}")
+    public String editProductPost(@PathVariable String id, @ModelAttribute Product product) {
+        service.update(id, product);
         return "redirect:list";
     }
 
