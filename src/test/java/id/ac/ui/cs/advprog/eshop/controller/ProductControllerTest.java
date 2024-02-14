@@ -16,6 +16,8 @@ import java.util.List;
 import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
@@ -52,6 +54,7 @@ public class ProductControllerTest {
         verify(model).addAttribute("products", productList);
     }
 
+    @SuppressWarnings("null")
     @Test
     void testCreateProductGet() {
         String viewName = productController.createProductPage(model);
@@ -77,5 +80,23 @@ public class ProductControllerTest {
 
         assertEquals("productUpdate", viewName);
         verify(model).addAttribute("product", product);
+    }
+
+    @Test
+    void testEditProductPut() {
+        String redirectURL = productController.editProductPut(product);
+
+        assertEquals("redirect:/product/list", redirectURL);
+        verify(productService).update(product);
+    }
+
+    @Test
+    void testDeleteProduct() {
+        String productId = product.getProductId();
+
+        String redirectURL = productController.deleteProductPost(productId);
+
+        assertEquals("redirect:/product/list", redirectURL);
+        verify(productService).delete(productId);
     }
 }
