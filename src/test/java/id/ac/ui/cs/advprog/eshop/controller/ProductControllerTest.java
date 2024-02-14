@@ -59,11 +59,11 @@ class ProductControllerTest {
     void testCreateProductGet() {
         String viewName = productController.createProductPage(model);
 
-        assertEquals(viewName, "ProductCreate");
+        assertEquals("ProductCreate", viewName);
         verify(model).addAttribute(eq("product"), any(Product.class));
     }
 
-    @Test
+    @Test   
     void testCreateProductPost() {
         String redirectUrl = productController.createProductPost(product, model);
 
