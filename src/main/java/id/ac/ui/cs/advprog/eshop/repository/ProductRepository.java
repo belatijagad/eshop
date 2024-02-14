@@ -38,13 +38,13 @@ public class ProductRepository {
         return null;
     }
 
-    public boolean deleteById(String id) {
+    public Product deleteById(String id) {
         for (Product p : productData) {
             if (p.getProductId().equals(id)) {
                 productData.remove(p);
-                return true;
+                return p;
             }
         }
-        return false;
+        return null;
     }
 }

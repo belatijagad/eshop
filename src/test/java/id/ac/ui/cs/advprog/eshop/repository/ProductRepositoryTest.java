@@ -191,7 +191,7 @@ public class ProductRepositoryTest {
         product.setProductQuantity(69);
         productRepository.create(product);
 
-        Boolean isProductDeleted = productRepository.deleteById(productId2);
-        assertFalse(isProductDeleted);
+        Product deletedProduct = productRepository.deleteById(productId2);
+        assertNull(deletedProduct);
     }
 }
