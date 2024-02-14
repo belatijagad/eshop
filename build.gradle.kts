@@ -9,7 +9,7 @@ plugins {
 sonar {
     properties {
         property("sonar.projectKey", "belatijagad_eshop")
-        property("sonar.organization", "Belati")
+        property("sonar.organization", "belati")
         property("sonar.host.url", "https://sonarcloud.io")
     }
 }
