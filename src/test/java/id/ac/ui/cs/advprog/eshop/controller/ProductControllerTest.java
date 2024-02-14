@@ -67,4 +67,15 @@ public class ProductControllerTest {
         assertEquals("redirect:/product/list", redirectUrl);
         verify(productService).create(product);
     }
+
+    @Test
+    void testEditProductGet() {
+        String productId = product.getProductId();
+        when(productService.getById(productId)).thenReturn(product);
+
+        String viewName = productController.editProductGet(productId, model);
+
+        assertEquals("productUpdate", viewName);
+        verify(model).addAttribute("product", product);
+    }
 }
