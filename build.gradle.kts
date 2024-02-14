@@ -6,6 +6,14 @@ plugins {
     id("io.spring.dependency-management") version "1.1.4"
 }
 
+sonar {
+    properties {
+        property("sonar.projectKey", "belatijagad")
+        property("sonar.organization", "Belati")
+        property("sonar.host.url", "https://sonarcloud.io")
+    }
+}
+
 group = "id.ac.ui.cs.advprog"
 version = "0.0.1-SNAPSHOT"
 
