@@ -12,6 +12,7 @@
     <a th:href="@{/product/create}" class="btn btn-primary btn-sm mb-3">Create Product</a>
 
     <table border="1" class="table table-striped table-responsive-md">
+        <caption>Table showing list of all products</caption>
         <thead>
         <tr>
             <th scope="col">Product Name</th>
@@ -23,7 +24,7 @@
         <tr th:each="product: ${products}">
             <td th:text="${product.productName}" class="product-name"></td>
             <td th:text="${product.productQuantity}"></td>
-            <td title="Cell for deleting products">
+            <td>
                 <a th:href="@{/product/edit/{id}(id=${product.productId})}" class="btn btn-primary btn-sm">Edit</a>
                 <form th:action="@{/product/delete/{id}(id=${product.productId})}" method="post">
                     <input type="submit" value="Delete" class="btn btn-primary btn-sm" />
