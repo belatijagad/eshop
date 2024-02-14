@@ -31,19 +31,20 @@ public class ProductController {
 
     @GetMapping("/edit/{id}")
     public String editProductGet(@PathVariable String id, Model model) {
-        model.addAttribute("product", service.getById(id));
+        Product product = service.getById(id);
+        model.addAttribute("product", product);
         return "productUpdate";
     }
 
-    @PostMapping("/edit/{id}")
-    public String editProductPost(@PathVariable String id, @ModelAttribute Product product) {
-        service.update(id, product);
+    @PutMapping("/edit")
+    public String editProductPost(@ModelAttribute Product product) {
+        service.update(product);
         return "redirect:/product/list";
     }
 
     @PostMapping("/delete/{id}")
     public String deleteProductPost(@PathVariable String id, @ModelAttribute Product product) {
-        service.delete(id, product);
+        service.delete(id);
         return "redirect:/product/list";
     }
 

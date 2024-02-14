@@ -79,10 +79,10 @@ public class ProductRepositoryTest {
         productRepository.create(product);
 
         Product updatedProduct = new Product();
+        updatedProduct.setProductId("eb558e9f-1c39-460e-8860-71af6af63bd6");
         updatedProduct.setProductName("Sampo Cap Budi");
         updatedProduct.setProductQuantity(420);
-
-        service.update("eb558e9f-1c39-460e-8860-71af6af63bd6", updatedProduct);
+        productRepository.update(updatedProduct);
 
         assertEquals(product.getProductName(), updatedProduct.getProductName());
         assertEquals(product.getProductQuantity(), updatedProduct.getProductQuantity());
