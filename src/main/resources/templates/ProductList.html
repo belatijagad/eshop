@@ -23,7 +23,7 @@
         <tr th:each="product: ${products}">
             <td th:text="${product.productName}" class="product-name"></td>
             <td th:text="${product.productQuantity}"></td>
-            <td>
+            <td title="Cell for deleting products">
                 <a th:href="@{/product/edit/{id}(id=${product.productId})}" class="btn btn-primary btn-sm">Edit</a>
                 <form th:action="@{/product/delete/{id}(id=${product.productId})}" method="post">
                     <input type="submit" value="Delete" class="btn btn-primary btn-sm" />
