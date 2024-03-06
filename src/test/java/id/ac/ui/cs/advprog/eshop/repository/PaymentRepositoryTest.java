@@ -21,10 +21,12 @@ class PaymentRepositoryTest {
         paymentRepository = new PaymentRepository();
         payments = new ArrayList<>();
 
-        Payment payment1 = new Payment("13652556-012a-4c07-b546-54eb1396d79b", PaymentMethod.VOUCHER_CODE.getValue(), paymentData);
+        Payment payment1 = new Payment("13652556-012a-4c07-b546-54eb1396d79b",
+                PaymentMethod.VOUCHER_CODE.getValue(), paymentData);
         payments.add(payment1);
 
-        Payment payment2 = new Payment("7f9e15bb-4b15-42f4-aebc-c3af385fb078", PaymentMethod.BANK_TRANSFER.getValue(), paymentData);
+        Payment payment2 = new Payment("7f9e15bb-4b15-42f4-aebc-c3af385fb078",
+                PaymentMethod.BANK_TRANSFER.getValue(), paymentData);
         payments.add(payment2);
     }
 
@@ -46,7 +48,8 @@ class PaymentRepositoryTest {
         Payment payment = payments.get(1);
         paymentRepository.save(payment);
 
-        Payment newPayment = new Payment(payment.getId(), PaymentMethod.BANK_TRANSFER.getValue(), paymentData);
+        Payment newPayment = new Payment(payment.getId(),
+                PaymentMethod.BANK_TRANSFER.getValue(), paymentData);
         Payment result = paymentRepository.save(newPayment);
 
         Payment findResult = paymentRepository.findById(payments.get(1).getId());
