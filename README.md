@@ -73,3 +73,11 @@ By applying SOLID principles, the quality of code, maintainability, comprehensib
 
 ## Disadvantages of not applying SOLID with examples
 Failure to apply SOLID principles in our project can lead to significant drawbacks. For example, as mentioned earlier, not adhering to the Single Responsibility Principle (SRP) can result in classes becoming overly complex with excessive workloads, making them difficult to understand. If CarController remains within the ProductController file, we may become confused when debugging errors in that file, as we would need to debug either the CarController or the ProductController. Additionally, suppose there's an interface named Service containing all methods that should be in CarService and ProductService. In that case, the implementation in CarServiceImpl would have to implement methods such as Product create(Product product); that would never be used.
+
+# Module 4
+
+## Is TDD Flow Useful for me?
+Obviously it's really hard to implement. I'm not used to code this rigidly, following certain patterns... I don't know if I will ever get used to this. The flow sure makes my code prettier and easier to read through, but it's really hard to develop with it and it slows my development speed drastically.
+
+## Do my tests successfully followed F.I.R.S.T principle?
+I do think my tests successfully followed the F.I.R.S.T principle. If in reality it doesn't, then probably I haven't covered the `Thoroughly/Timely` part fully. It's not easy to think much of test cases, especially when you're a deadliner...
